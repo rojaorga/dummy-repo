@@ -8,6 +8,7 @@ plugins {
     id 'java'
 }
 repositories {
+    mavenCentral()
     maven {
         url 'https://releases.jfrog.io/artifactory/jfrog-jars'
     }
@@ -16,11 +17,8 @@ repositories {
 def artifactoryVersion = '7.49.5'
 
 dependencies {
-    implementation("org.artifactory:artifactory-papi:${artifactoryVersion}") {
-        exclude group:"org.jfrog.common"
-        exclude group: "org.slf4j", module: "slf4j-api-jfrog"
-        exclude group: "com.google.code.gson", module: "gson"
-        exclude group: "org.springframework", module: "spring-beans"
-    }
+    implementation("org.artifactory:artifactory-core:${artifactoryVersion}") 
+    implementation("org.artifactory:artifactory-papi:${artifactoryVersion}") 
+
 
 }
